@@ -5,7 +5,7 @@ body{
     margin: 0;
     height: 100vh;
     display: flex;
-    font-family: Georgia, serif;
+    font-family: Optima, sans-serif;
 }
 .sidebar{
     width: 20%;
@@ -46,7 +46,7 @@ body{
 main{
     padding-top: 10px;
     text-align: center;
-    background-color: #cf973622;
+    background-color: white;
     width: 100%;
 }
 
