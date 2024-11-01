@@ -11,15 +11,20 @@ body{
     width: 20%;
     display: flex;
     flex-direction: column;
-    background-image: linear-gradient(#0d0f36,#294380);
+    background-image: linear-gradient(#0e4ac7,#7851b8);
     color: white;
+    border-right: 2px solid white;
+}
+
+.sidebar a{
+    font-size: 20px;
 }
 
 .title{
     text-align: center;
     font-size: 25px;
     margin-bottom: 30px;
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
 .opcions{
@@ -29,11 +34,55 @@ body{
 }
 
 .opcions a{
-    color: #fccc2c;
+    color: #dfdced;
     text-decoration: none;
 }
 
 .opcions:hover{
     color: #b9f1d6;
     background-color: rgba(0, 0, 0, 0.27);
+}
+
+main{
+    padding-top: 10px;
+    text-align: center;
+    background-color: #cf973622;
+    width: 100%;
+}
+
+.header{
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+button{
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 7px;
+    background-color: #0e4ac7;
+    color: #dfdced;
+}
+
+label{
+    font-size: 20px;
+}
+input{
+    padding: 10px;
+    border-radius: 5px;
+}
+table{
+    border: 1px solid black;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-collapse: collapse;
+}
+th{
+    background-color: #888cad2d;
+    text-align: center;
+}
+th,td{
+    padding: 10px; 
+    border: 1px solid white;
 }

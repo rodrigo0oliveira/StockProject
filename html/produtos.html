@@ -9,7 +9,7 @@
 <body>
     <section class="sidebar">
         <div class="title">
-            <img src="../imgs/monitor.png" alt="">
+            <img src="../imgs/gestao-da-informacao.png" alt="">
         </div>
         <div class="opcions">
             <a href="dashboard.html">Dashboard</a>
@@ -24,6 +24,33 @@
             <a href="saida.html" target="_blank">Saída</a>
         </div>
     </section>
+    <main class="main">
+        <div class="header">
+            <div class="buscar">
+                <label for="site-search">Buscar:</label>
+                <input type="search" id="site-search" name="q" />
+                <button>Buscar</button>
+            </div>
+            <div class="adicionar">
+                <button>+Adicionar um novo produto</button>
+            </div>
+        </div>
+        <div class="tabela">
+            <table id="tabela-produtos">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        
+        
+    </main>
     
 </body>
 </html>
