@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestão de estoque</title>
-    <link rel="stylesheet" href="../css/auth.css">
+    <link rel="stylesheet" href="../css/auth.css">  
 </head>
 <body>
     <header class="header">
@@ -13,12 +13,20 @@
             <div class="formgroup">
                 <h2>E-mail</h2>
                 <label for="email"></label>
-                <input type="text" id="email" placeholder="Digite o seu e-mail:">
+                <input type="email" id="email" placeholder="Digite o seu e-mail:">
+                <span id="span-email">Email inválido</span>
             </div>
             <div class="formgroup">
                 <h2>Senha</h2>
                 <label for="password"></label>
                 <input type="password" id="password" placeholder="Digite uma senha:">
+                <span id="span-password">A senha deve conter: <br>
+                Uma letra minúscula [a-z]<br>
+                Uma letra maiúscula [A-Z]<br>
+                Um número [0-9] <br>
+                Um caracter especial <br>
+                No mínimo 8 e no máximo 15 caracteres <br>
+            </span>
             </div>
             <div class="confirm">
                 <label for="submit"></label>
@@ -31,8 +39,8 @@
         </form>
         <div class="content">
             <img src="../imgs/gestão-de-estoque.png" alt="">
-        </div>
+        </div>      
     </header>
-    
+    <script src="../js/auth/register.js" type="module"></script>
 </body>
 </html>

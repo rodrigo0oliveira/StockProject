@@ -31,7 +31,8 @@ header{
 input{
     padding: 20px;
     width: 60%;
-    border: 2px solid #fbcc56;
+    border: 2px solid #ccc;
+    outline: none;
 }
 
 h2{
@@ -44,6 +45,21 @@ h2{
     background-color: #fbcc56;
     cursor: pointer;
     margin-bottom: 20px;
+    border-color: black;
+}
+
+#span-email{
+    margin-top: 10px;
+    font-size: 15px;
+    color: red;
+    display: none;
+}
+
+#span-password{
+    margin-top: 10px;
+    font-size: 15px;
+    color: red;
+    display: none;
 }
 
 a{
