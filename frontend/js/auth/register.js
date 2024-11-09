@@ -52,6 +52,15 @@ function removeError(string){
     span.style.display = "none";
 }
 
+function showSubmitError(){
+    var span = document.getElementById("error-submit");
+    span.style.display = "block",
+
+    setTimeout(function(){
+        span.style.display = "none";
+    },5000);
+}
+
 form.addEventListener('submit',function(event){
     event.preventDefault();
     
@@ -62,6 +71,9 @@ form.addEventListener('submit',function(event){
         const user = new User(emailValue,passwordValue,"ADMIN");
 
         console.log(JSON.stringify(user));
+    }
+    else{
+        showSubmitError();
     }
     
 })

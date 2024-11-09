@@ -62,6 +62,14 @@ h2{
     display: none;
 }
 
+#error-submit{
+    margin-top: 10px;
+    font-size: 15px;
+    color: red;
+    display: none;
+    margin-bottom: 20px;
+}
+
 a{
    text-decoration: none;
    color: #72392a;
