@@ -32,7 +32,7 @@ public class AuthService {
 
         User newUser = User.builder()
             .id(UUID.randomUUID().toString())
-            .email(registerDto.name())
+            .email(registerDto.email())
             .password(passwordEncrypted)
             .roles(Collections.singletonList(roleService.findByName(registerDto.role())))
             .build();
