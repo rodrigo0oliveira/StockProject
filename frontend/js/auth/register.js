@@ -1,5 +1,6 @@
 import User from "../entities/user.js"
 
+
 const form = document.getElementById("form");
 
 var emailValid = false;
@@ -68,9 +69,8 @@ form.addEventListener('submit',function(event){
     var passwordValue = document.getElementById("password").value;
 
     if(emailValid&&passwordValid==true){
-        const user = new User(emailValue,passwordValue,"ADMIN");
-
-        console.log(JSON.stringify(user));
+        const user = new User(emailValue,passwordValue,"CLIENT");
+        sendRequest(user);
     }
     else{
         showSubmitError();
@@ -78,5 +78,14 @@ form.addEventListener('submit',function(event){
     
 })
 
-
+function sendRequest(user){
+    const response = axios.post('http://localhost:8080/auth/register',{
+        email : user.email,
+        password : user.password,
+        role : user.role
+    })
+    .then((response)=>{
+        console.log(response.status);
+    })
+}
 
