@@ -1,3 +1,4 @@
+
 import User from "../entities/user.js"
 
 
@@ -62,15 +63,20 @@ function showSubmitError(){
     },5000);
 }
 
-form.addEventListener('submit',function(event){
+form.addEventListener('submit',async function(event) {
     event.preventDefault();
-    
     var emailValue = document.getElementById("email").value;
     var passwordValue = document.getElementById("password").value;
 
     if(emailValid&&passwordValid==true){
         const user = new User(emailValue,passwordValue,"CLIENT");
-        sendRequest(user);
+        try{
+            const response = await sendRequest(user);
+            responseMessage(response.status);
+        }
+        catch(error){
+            console.log(error);
+        }
     }
     else{
         showSubmitError();
@@ -78,14 +84,28 @@ form.addEventListener('submit',function(event){
     
 })
 
-function sendRequest(user){
-    const response = axios.post('http://localhost:8080/auth/register',{
-        email : user.email,
-        password : user.password,
-        role : user.role
-    })
-    .then((response)=>{
-        console.log(response.status);
-    })
+async function sendRequest(user){
+   try {
+    const response = await axios.post('http://localhost:8080/auth/register',{
+        email:user.email,
+        password:user.password,
+        role:user.role
+    });
+    return response;
+   } catch (error) {
+        console.log(error);
+   }
+    
+}
+
+function responseMessage(status){
+    const spanRegister = document.getElementById("message-register");
+    if(status==201){
+        spanRegister.style.display = "block";
+    }
+    else{
+        
+    }
+
 }
 

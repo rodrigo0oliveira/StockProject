@@ -70,8 +70,18 @@ h2{
     margin-bottom: 20px;
 }
 
+#message-register{
+    margin-top: 10px;
+    font-size: 15px;
+    color: green;
+    margin-bottom: 10px;
+    display: none;
+}
+
+
 a{
    text-decoration: none;
    color: #72392a;
    font-family: system-ui;
+   font-size: 18px;
 }
