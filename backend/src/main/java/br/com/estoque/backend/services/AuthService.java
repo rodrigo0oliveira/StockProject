@@ -28,6 +28,9 @@ public class AuthService {
     }
 
     public String createAccount(RegisterDto registerDto){
+        if(findByEmail(registerDto.email())==true){
+            return "O email informado já está cadastrado!";
+        }
         String passwordEncrypted = passwordEncoder.encode(registerDto.password());
 
         User newUser = User.builder()
@@ -41,6 +44,13 @@ public class AuthService {
 
         return "Conta criada";
         
+    }
+
+    public boolean findByEmail(String email){
+        if(userRepository.findByEmail(email).isPresent()){
+            return true;
+        }
+        return false;
     }
     
 }

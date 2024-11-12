@@ -1,6 +1,7 @@
 package br.com.estoque.backend.controller;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,7 +32,11 @@ public class AuthController {
         if(message=="Conta criada"){
             return new ResponseEntity<>(message,(HttpStatus.CREATED));
         }
-        else return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        else if(message=="O email informado já está cadastrado!"){
+            return new ResponseEntity<>(message,(HttpStatus.CONFLICT));
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        
     }
     
 }
