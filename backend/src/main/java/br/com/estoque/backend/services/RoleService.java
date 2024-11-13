@@ -1,5 +1,6 @@
 package br.com.estoque.backend.services;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -7,14 +8,10 @@ import br.com.estoque.backend.entities.Roles;
 import br.com.estoque.backend.repository.RoleRepository;
 
 @Service
+@RequiredArgsConstructor
 public class RoleService {
 
-    private RoleRepository roleRepository;
-
-    @Autowired
-    public RoleService(RoleRepository roleRepository){
-        this.roleRepository = roleRepository;
-    }
+    private final RoleRepository roleRepository;
 
     public Roles findByName(String name){
        Roles roles = roleRepository.findByName(name);

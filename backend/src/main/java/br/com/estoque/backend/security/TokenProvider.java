@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
@@ -26,22 +27,18 @@ import lombok.extern.slf4j.Slf4j;
 
 @Component
 @Slf4j
+@RequiredArgsConstructor
 public class TokenProvider {
 
     private static final int UNAUTHORIZED = 401;
 
-    private ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper;
 
-    @Value("${jwt-key}")
+    @Value("${jwt.key}")
     private String jwtKey;
 
-    @Value("${jwt-expiration-time}")
+    @Value("${jwt.expiration-time}")
     private Integer expirationTime;
-
-	@Autowired
-    public TokenProvider(ObjectMapper objectMapper){
-        this.objectMapper = objectMapper;
-    }
 
     public TokenResponse generateToken(Authentication authentication){
         final Date now = new Date();
@@ -65,7 +62,7 @@ public class TokenProvider {
         return TokenResponse.builder()
             .token(auth)
             .expiresIn(expirationInMillis)
-            .user_id(user.getId())
+            .userEmail(user.getEmail())
             .build();
     }
 

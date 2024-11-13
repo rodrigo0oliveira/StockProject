@@ -1,6 +1,7 @@
 package br.com.estoque.backend.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import io.jsonwebtoken.Jwt;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,14 +24,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity(securedEnabled = true)
+@RequiredArgsConstructor
 public class SecurityConfiguration {
 
-    private TokenProvider tokenProvider;
-
-    @Autowired
-    public SecurityConfiguration(TokenProvider tokenProvider){
-        this.tokenProvider = tokenProvider;
-    }
+    private final TokenProvider tokenProvider;
 
     @Bean
     public PasswordEncoder passwordEncoder(){
@@ -57,7 +54,7 @@ public class SecurityConfiguration {
         .requestMatchers("/h2-console/**").permitAll()
         .anyRequest().permitAll())
         .headers(headers -> headers
-                .frameOptions().disable() 
+                .frameOptions().disable()
             )
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .addFilterBefore(new JwtFilter(tokenProvider),UsernamePasswordAuthenticationFilter.class)

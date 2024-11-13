@@ -1,20 +1,17 @@
 package br.com.estoque.backend.security;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Builder
 @AllArgsConstructor
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
 public class TokenResponse {
 
     private String token;
 
     private long expiresIn;
 
-    private String user_id;
+    private String userEmail;
 
 }
