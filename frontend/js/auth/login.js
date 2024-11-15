@@ -43,6 +43,7 @@ function responseMessageLogin(response){
         spanCredentialError.textContent = "Credenciais válidas";
         spanCredentialError.style.color = "green";
         spanCredentialError.style.display = "block";
+        window.location.href= "http://127.0.0.1:5500/frontend/html/dashboard.html";
     }
     else{
         spanCredentialError.style.display = "block";

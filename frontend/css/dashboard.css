@@ -3,7 +3,7 @@
 }
 body{
     margin: 0;
-    height: 100vh;
+    height: 100%;
     display: flex;
     font-family: Optima, sans-serif;
 }
@@ -13,6 +13,7 @@ body{
     flex-direction: column;
     background-image: linear-gradient(#0e4ac7,#7851b8);
     color: white;
+    overflow: auto;
 }
 
 .sidebar a{
@@ -47,7 +48,7 @@ body{
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #cf973622;
+    background-color: white;
 }
 
 .itens{
