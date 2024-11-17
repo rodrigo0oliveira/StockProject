@@ -2,9 +2,8 @@ package br.com.estoque.backend.entities;
 
 import br.com.estoque.backend.enums.Status;
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
 import java.math.BigDecimal;
 
@@ -13,6 +12,8 @@ import java.math.BigDecimal;
 @Setter
 @Table(name = "tb_products")
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Product {
 
     @Id
@@ -21,17 +22,23 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @NotNull
     private User user;
 
+    @NotNull
     private String name;
 
+    @NotNull
     private BigDecimal price;
 
+    @NotNull
     private Integer quantity;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     private Status status;
 
     @Column(unique = true)
+    @NotNull
     private Integer code;
 }

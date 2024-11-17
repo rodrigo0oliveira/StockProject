@@ -1,5 +1,7 @@
 package br.com.estoque.backend.entities;
 
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 
 import jakarta.persistence.Column;
@@ -8,10 +10,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "tb_roles")
@@ -19,6 +17,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
+@Getter
+@Setter
 public class Roles implements GrantedAuthority{
 
     @Id
@@ -26,6 +26,7 @@ public class Roles implements GrantedAuthority{
     @Column(name = "role_id")
     private String id;
 
+    @NotNull
     private String name;
 
     public Roles(String name){
