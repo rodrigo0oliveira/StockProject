@@ -4,4 +4,6 @@ import br.com.estoque.backend.entities.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProductRepository extends JpaRepository<Product,String> {
+
+    Product findByCode(Integer code);
 }

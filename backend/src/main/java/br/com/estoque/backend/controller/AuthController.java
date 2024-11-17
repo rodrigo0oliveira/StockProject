@@ -1,5 +1,8 @@
 package br.com.estoque.backend.controller;
 
+import br.com.estoque.backend.security.TokenProvider;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,8 +42,8 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<TokenResponse> login(@Valid @RequestBody LoginDto loginDto) throws Exception{
-        TokenResponse tokenResponse = authService.login(loginDto);
+    public ResponseEntity<TokenResponse> login(@Valid @RequestBody LoginDto loginDto,HttpServletResponse response) throws Exception{
+        TokenResponse tokenResponse = authService.login(loginDto,response);
         return new ResponseEntity<>(tokenResponse,(HttpStatus.OK));
     }
     
