@@ -12,7 +12,7 @@ form.addEventListener('submit', async function(event){
 
     try{
         const response = await sendRequestLogin(loginDto);
-        responseMessageLogin(response.status);
+        responseMessageLogin(response.status,response.data.token,response.data.expiresIn);
 
     }catch(error){
         return error;
@@ -37,15 +37,25 @@ async function sendRequestLogin(user) {
     }
 }
 
-function responseMessageLogin(response){
+function responseMessageLogin(response,token,expiresIn){
     const spanCredentialError = document.getElementById("credential-error");
     if(response==200){
         spanCredentialError.textContent = "Credenciais válidas";
         spanCredentialError.style.color = "green";
         spanCredentialError.style.display = "block";
-        window.location.href= "http://127.0.0.1:5500/frontend/html/dashboard.html";
+        saveCookie(token,expiresIn);
+        
+        
     }
     else{
         spanCredentialError.style.display = "block";
     }
+}
+
+function saveCookie(token,expiresIn){
+    const name = "jwt";
+    const date = new Date();
+    date.setTime(date.getTime()+expiresIn);
+    const expires = "expires="+date.toUTCString();
+    document.cookie=`${name}=${token}; ${expires}; path=/; SameSite=Strict`;
 }
