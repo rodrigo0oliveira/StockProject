@@ -1,7 +1,5 @@
 package br.com.estoque.backend.controller;
 
-import br.com.estoque.backend.security.TokenProvider;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
