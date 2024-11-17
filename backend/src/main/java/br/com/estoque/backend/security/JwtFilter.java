@@ -27,8 +27,7 @@ public class JwtFilter extends GenericFilterBean{
 			throws IOException, ServletException {
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 
-		String jwt = httpServletRequest.getHeader("Authorization");
-
+		String jwt = tokenProvider.getJwtFromCookie(httpServletRequest);
 		if(StringUtils.hasText(jwt)) {
 			if(tokenProvider.isValid(jwt, response)) {
 				final User user = tokenProvider.getUserFromToken(jwt);
@@ -36,7 +35,6 @@ public class JwtFilter extends GenericFilterBean{
 						new UsernamePasswordAuthenticationToken(user.getId(),null,user.getAuthorities());
 
 				SecurityContextHolder.getContext().setAuthentication(authenticationToken);
-
 			}
 			else {
 				return ;
