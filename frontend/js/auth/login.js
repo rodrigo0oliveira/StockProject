@@ -58,4 +58,5 @@ function saveCookie(token,expiresIn){
     date.setTime(date.getTime()+expiresIn);
     const expires = "expires="+date.toUTCString();
     document.cookie=`${name}=${token}; ${expires}; path=/; SameSite=Strict`;
+    window.location.href="http://127.0.0.1:5500/frontend/html/dashboard.html";
 }
