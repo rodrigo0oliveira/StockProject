@@ -84,8 +84,7 @@ input{
     text-align: center;
 }
 
-.submit button{
-    padding: 20px;
+.submit input{
     width: 150px;
     font-size: 18px;
     background-color: #8d7966;

@@ -86,14 +86,14 @@ form.addEventListener('submit',async function(event) {//Evento ao clicar em no b
 
 async function sendRequest(user){//Envia requisição de registro
    try {
-    const response = await axios.post('http://localhost:8080/auth/register',{
+    const response = await axios.post('https://localhost:8843/auth/register',{
         email:user.email,
         password:user.password,
         role:user.role
     },{
         validateStatus: (status) => {
             return status >= 200 && status < 500;
-        }
+        },withCredentials:false
     });
     return response;
    } catch (error) {

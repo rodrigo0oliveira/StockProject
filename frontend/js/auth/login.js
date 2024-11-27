@@ -22,13 +22,13 @@ form.addEventListener('submit', async function(event){
 
 async function sendRequestLogin(user) {
     try{
-        const response = await axios.post('http://localhost:8080/auth/login',{
+        const response = await axios.post('https://localhost:8843/auth/login',{
             email : user.email,
             password: user.password
         },{
             validateStatus:(status)=>{
                 return status>=200 && status <500;
-            }
+            },withCredentials:false
         });
         return response;
     }
@@ -57,6 +57,6 @@ function saveCookie(token,expiresIn){
     const date = new Date();
     date.setTime(date.getTime()+expiresIn);
     const expires = "expires="+date.toUTCString();
-    document.cookie=`${name}=${token}; ${expires}; path=/; SameSite=Strict`;
-    window.location.href="http://127.0.0.1:5500/frontend/html/dashboard.html";
+    document.cookie=`${name}=${token}; ${expires}; path=/; Secure; SameSite=None`;
+    window.location.href="/dashboard.html";
 }
