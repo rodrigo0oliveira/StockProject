@@ -12,7 +12,8 @@ form.addEventListener('submit',async function (event) {
     if(verifyIsNull(code,name,quantity,price)){
         const product = new Product(name,price,quantity,code)
         try{
-            createProduct(product);
+            const response = await createProduct(product);
+            messageCreateProduct(response.status);
         }
         catch(error){
             console.log(error);
@@ -41,5 +42,22 @@ async function createProduct(product){
     return response;
     }catch(error){
         console.log(error);
+    }
+}
+
+function messageCreateProduct(status){
+    const response = document.getElementById("response");
+    const span = document.getElementById("span-message");
+    if(status==201){
+        response.textContent = "Produto cadastrado com sucesso!";
+        span.style.backgroundColor = "rgba(0, 128, 0, 0.285)";
+    }
+    else  if(status==409){
+        span.style.backgroundColor = "rgba(110, 23, 6, 0.285)";
+        response.textContent = "O código informado já existe.";
+    }
+    else{
+        span.style.backgroundColor = "rgba(110, 23, 6, 0.285)";
+        response.textContent = "Algo deu errado ao cadastrar o produto";
     }
 }

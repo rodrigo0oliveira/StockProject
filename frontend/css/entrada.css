@@ -14,7 +14,7 @@ body{
     flex-direction: column;
     background-color: rgba(128, 128, 128, 0.905);
     color: white; 
-    height: 100vh;
+    height: auto;
 }
 
 .sidebar a{
@@ -46,48 +46,63 @@ body{
 main{
     width: 100%;
     background-color: white;
-    display: flex;
     flex-direction: column;
-    align-items: center;
-   
+    align-content: center;
+    justify-items: center;
+    height: 100vh;
 }
 
 #form{
-    padding: 30px;
+    padding: 10px;
     width: 40%;
     text-align: center;
     flex-flow: row wrap;
     background-color: rgba(128, 128, 128, 0.192);
     border-radius: 20px;
     justify-content: center;
-
+    align-content: center;
 }
 
-.title-cadastro{
-    margin: 20px;
-}
-
-.form-produtos{
-    margin: 10px;
+#form h1{
+    font-size: 25px;
+    color: #69695f;
     padding: 10px;
 }
 
+.form-produtos h2{
+    font-size: 20px;
+    color: #53534d;
+}
+
+
 input{
+    margin-top: 5px;
     width: 200px;
     height: 40px;
     border-radius: 10px;
-    border: 1px solid white;
+    border: 2px solid white;
 }
 
 .submit{
-    margin-top: 70px;
     text-align: center;
+    padding: 10px;
 }
 
 .submit input{
+    margin-top: 30px;
     width: 150px;
     font-size: 18px;
-    background-color: #8d7966;
-    color: white;
+    background-color: white;
+    color: black;
     border-radius: 20px;
 }
+
+#span-message {
+    display: flex;
+    width: 40%;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+
+
