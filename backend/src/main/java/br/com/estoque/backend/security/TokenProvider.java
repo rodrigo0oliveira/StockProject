@@ -107,12 +107,15 @@ public class TokenProvider {
 		return (User) authentication.getPrincipal();
 	}
 
-	public Cookie createCookie(String token, int maxAge) {
+	public Cookie createCookie(HttpServletResponse response,String token, int maxAge) {
 		Cookie cookie = new Cookie("jwt", token);
 		cookie.setPath("/");
 		cookie.setSecure(true);
 		cookie.setHttpOnly(true);
 		cookie.setMaxAge(maxAge);
+		cookie.setDomain("localhost");
+		response.setHeader("Set-Cookie", "jwt=" + token +
+				"; Path=/; HttpOnly; Secure; SameSite=None; Max-Age=" + maxAge);
 
 		return cookie;
 	}

@@ -57,7 +57,7 @@ public class AuthService {
                 new UsernamePasswordAuthenticationToken(loginDto.email(), loginDto.password()));
 
             TokenResponse tokenResponse =  tokenProvider.generateToken(authentication);
-            Cookie cookie = tokenProvider.createCookie(tokenResponse.getToken(),7200);
+            Cookie cookie = tokenProvider.createCookie(response,tokenResponse.getToken(),7200);
             response.addCookie(cookie);
             return tokenResponse;
         }catch(AuthenticationException e){

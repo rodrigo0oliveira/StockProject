@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "/auth/product")
 @RequiredArgsConstructor
-@CrossOrigin("*")
 public class ProductController {
 
     private final ProductService productService;
 
+    @CrossOrigin(origins = "https://localhost",allowCredentials = "true")
     @PostMapping("/create")
     public ResponseEntity<String> createProduct(@RequestBody NewProductDto newProductDto){
         String response = productService.createProduct(newProductDto);
