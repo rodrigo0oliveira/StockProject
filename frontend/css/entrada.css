@@ -2,85 +2,83 @@
     box-sizing: border-box;
 }
 body{
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
     margin: 0;
-    height: 100vh;
+    padding: 0;
     display: flex;
-    font-family: Optima, sans-serif;
-    color: black;
+    height: 100vh;
 }
 .sidebar{
-    width: 20%;
+    border-radius: 15px;
+    background-color: #333;
+    color: #fff;
+    width: 11%;
+    height: 90vh;
+    position: relative;
+    padding: 20px;
+    top: 4%;
+    left: 0.5%;
     display: flex;
     flex-direction: column;
-    background-color: rgba(128, 128, 128, 0.905);
-    color: white; 
-    height: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    font-size: 18px;
 }
 
-.sidebar a{
-    font-size: 20px;
+.sidebar ul{
+    list-style-type: none;
+    padding: 0;
+    margin-top: 50px;
 }
 
-.title{
-    text-align: center;
-    font-size: 25px;
-    margin-bottom: 30px;
-    margin-top: 30px;
+.sidebar ul li{
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
 }
 
-.opcions{
-    padding: 40px; 
-    text-align: center;
-    margin: 10px 0px 10px 0px;
+.sidebar ul li:hover{
+    background-color: #555;
 }
 
-.opcions a{
-    color: #dfdced;
+.sidebar ul li a{
+    color: #fff;
     text-decoration: none;
 }
 
-.opcions:hover{
-    color: #b9f1d6;
-    background-color: rgba(0, 0, 0, 0.27);
+.logo{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+.exit{
+    position: absolute;
+    bottom: 20px;
 }
 main{
-    width: 100%;
-    background-color: white;
-    flex-direction: column;
-    align-content: center;
-    justify-items: center;
-    height: 100vh;
+    width: calc(100% - 12%);
+    height: 80%;
+    display: flex;
+    margin-top: 100px;
 }
-
 #form{
+    width: 100%;
+    gap: 20px;
+}
+
+.form-produtos{
+    font-size: 14px;
+    color: #555;
     padding: 10px;
-    width: 40%;
+    margin: 10px;
     text-align: center;
-    flex-flow: row wrap;
-    background-color: rgba(128, 128, 128, 0.192);
-    border-radius: 20px;
-    justify-content: center;
-    align-content: center;
 }
 
-#form h1{
-    font-size: 25px;
-    color: #69695f;
-    padding: 10px;
-}
-
-.form-produtos h2{
-    font-size: 20px;
-    color: #53534d;
-}
-
-
-input{
-    margin-top: 5px;
-    width: 200px;
-    height: 40px;
+.form-produtos input{
     border-radius: 10px;
     border: 2px solid white;
+    height: 40px;
 }
 
 .submit{
@@ -89,20 +87,16 @@ input{
 }
 
 .submit input{
-    margin-top: 30px;
     width: 150px;
     font-size: 18px;
-    background-color: white;
-    color: black;
+    background-color: #333;
+    color: #dfdced;
     border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
-
-#span-message {
-    display: flex;
-    width: 40%;
-    justify-content: center;
-    border-radius: 20px;
-}
+ #response{
+    padding: 20px;
+ }
 
 
 

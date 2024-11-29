@@ -7,26 +7,28 @@
     <link rel="stylesheet" href="../css/entrada.css">
 </head>
 <body>
-    <section class="sidebar">
-        <div class="title">
+    <div class="sidebar">
+        <div class="logo">
             <img src="../imgs/gestao-da-informacao.png" alt="">
         </div>
-        <div class="opcions">
-            <a href="dashboard.html">Dashboard</a>
-        </div>
-        <div class="opcions">
-            <a href="produtos.html" target="_blank">Produtos</a>
-        </div>
-        <div style="background-color: rgba(0, 0, 0, 0.391);" class="opcions">
-            <a href="#">Cadastro</a>
-        </div>
-        <div class="opcions">
-            <a href="saida.html" target="_blank">Venda</a>
-        </div>
-    </section>
+        <ul>
+            <li>
+                <a href="../html/dashboard.html">Dashboard</a>
+            </li>
+            <li>
+                <a href="../html/produtos.html">Produtos</a>
+            </li>
+            <li>
+                <a href="#">Entrada</a>
+            </li>
+            <li>
+                <a href="../html/saida.html">Venda</a>
+            </li>
+        </ul>
+        <a href="#" class="exit"><img src="../imgs/logout.png" alt=""></a>
+    </div>
     <main>
         <form id="form">
-            <h1>Cadastro de produto</h1>
             <div class="form-produtos">
                 <h2>Código</h2>
                 <input type="number" min="1" id="code">
@@ -44,16 +46,17 @@
                 <h2>Quantidade</h2>
                 <input type="number" min="0" id="quantity">
             </div>
+            <div class="form-produtos">
+                <h2>Categoria</h2>
+                <input type="text"  id="category">
+            </div>
             <div class="submit">
                 <label for="submit"></label>
                 <input type="submit" id="submit" value="Cadastrar">
             </div>
         </form>
-        <div id="span-message">
-            <span id="response"></span>
-        </div>
     </main>
-    
+   <span id="response"></span>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../js/services/productService.js" type="module"></script>
 </body>
