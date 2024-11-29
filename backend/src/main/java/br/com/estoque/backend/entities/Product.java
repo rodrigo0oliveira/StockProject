@@ -41,4 +41,8 @@ public class Product {
     @Column(unique = true)
     @NotNull
     private Integer code;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 }
