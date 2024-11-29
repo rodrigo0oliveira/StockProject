@@ -60,11 +60,12 @@ main{
     width: calc(100% - 12%);
     height: 80%;
     display: flex;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 #form{
     width: 100%;
     gap: 20px;
+    left: 10%;
 }
 
 .form-produtos{
