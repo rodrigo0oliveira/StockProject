@@ -27,36 +27,35 @@
         </ul>
         <a href="#" class="exit"><img src="../imgs/logout.png" alt=""></a>
     </div>
-    <main>
-        <form id="form">
-            <div class="form-produtos">
-                <h2>Código</h2>
-                <input type="number" min="1" id="code">
-            </div>
-            <div class="form-produtos">
-                <h2>Nome</h2>
-                <label for="text"></label>
-                <input type="text" id="name">
-            </div>
-            <div class="form-produtos">
-                <h2>Preço</h2>
-                <input type="number" min="1" id="price">
-            </div>
-            <div class="form-produtos">
-                <h2>Quantidade</h2>
-                <input type="number" min="0" id="quantity">
-            </div>
-            <div class="form-produtos">
-                <h2>Categoria</h2>
-                <input type="text"  id="category">
-            </div>
-            <div class="submit">
-                <label for="submit"></label>
-                <input type="submit" id="submit" value="Cadastrar">
-            </div>
-        </form>
-    </main>
-   <span id="response"></span>
+    <form id="form">
+        <div class="form-produtos">
+            <h2>Código</h2>
+            <input type="number" min="1" id="code">
+        </div>
+        <div class="form-produtos">
+            <h2>Nome</h2>
+            <label for="text"></label>
+            <input type="text" id="name">
+        </div>
+        <div class="form-produtos">
+            <h2>Preço</h2>
+            <input type="number" min="1" id="price">
+        </div>
+        <div class="form-produtos">
+            <h2>Quantidade</h2>
+            <input type="number" min="0" id="quantity">
+        </div>
+        <div class="form-produtos">
+            <h2>Categoria</h2>
+            <input type="text"  id="category">
+        </div>
+        <div class="form-produtos">
+            <input id="submit" type="submit" value="Cadastrar">
+        </div>
+        <div class="span">
+            <span id="response"></span>
+        </div>
+    </form>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../js/src/form/formProduct.js" type="module"></script>
     <script src="../js/src/components/productComponent.js" type="module"></script>
