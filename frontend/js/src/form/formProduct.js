@@ -11,9 +11,10 @@ form.addEventListener('submit',async function (event) {
     const name = document.getElementById("name").value;
     const price = document.getElementById("price").value;
     const quantity = document.getElementById("quantity").value;
+    const category = document.getElementById("category").value;
 
-    if(Utils.verifyIsNull(code,name,quantity,price)){
-        const product = new Product(name,price,quantity,code)
+    if(Utils.verifyIsNull(code,name,quantity,price,category)){
+        const product = new Product(name,price,quantity,code,category)
         try{
             const response = await productService.createProduct(product);
             productComponent.messageCreateProduct(response.status);
