@@ -1,5 +1,6 @@
 package br.com.estoque.backend.services;
 
+import br.com.estoque.backend.dtos.EntryDto;
 import br.com.estoque.backend.dtos.NewProductDto;
 import br.com.estoque.backend.entities.Category;
 import br.com.estoque.backend.entities.Product;
@@ -20,8 +21,9 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final AuthService authService;
     private final CategoryService categoryService;
+    private final EntryService entryService;
 
-    public String createProduct(NewProductDto newProductDto){
+    public String createProduct(NewProductDto newProductDto) throws Exception {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = authService.getUser(authentication);
 
@@ -40,14 +42,19 @@ public class ProductService {
                 .user(user)
                 .build();
 
-        productRepository.save(newProduct);
+        newProduct = productRepository.save(newProduct);
+        entryService.createEntry(new EntryDto(newProduct,newProduct.getQuantity()));
 
         return "Produdo criado com sucesso";
     }
 
     public void verifyIfCodeExist(Integer code){
-        if(productRepository.findByCode(code)!=null){
+        if(findByCode(code)!=null){
             throw new IllegalArgumentException();
         }
+    }
+
+    public Product findByCode(Integer code){
+        return productRepository.findByCode(code);
     }
 }

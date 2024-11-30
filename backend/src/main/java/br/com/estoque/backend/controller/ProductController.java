@@ -16,7 +16,7 @@ public class ProductController {
 
     @CrossOrigin(origins = "https://localhost",allowCredentials = "true")
     @PostMapping("/create")
-    public ResponseEntity<String> createProduct(@RequestBody NewProductDto newProductDto){
+    public ResponseEntity<String> createProduct(@RequestBody NewProductDto newProductDto) throws Exception {
         String response = productService.createProduct(newProductDto);
 
         return new ResponseEntity<>(response, HttpStatus.CREATED);

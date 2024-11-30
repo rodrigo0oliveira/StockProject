@@ -50,6 +50,9 @@ public class User implements UserDetails{
     @OneToMany(mappedBy = "user")
     private Set<Product> products;
 
+    @OneToMany(mappedBy = "user")
+    private Set<Entry> entrys;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles.stream().map(role-> new SimpleGrantedAuthority(role.getName()))
