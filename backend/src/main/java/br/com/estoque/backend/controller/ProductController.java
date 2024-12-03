@@ -1,6 +1,7 @@
 package br.com.estoque.backend.controller;
 
 import br.com.estoque.backend.dtos.NewProductDto;
+import br.com.estoque.backend.dtos.ProductResponseDto;
 import br.com.estoque.backend.services.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,9 +17,9 @@ public class ProductController {
 
     @CrossOrigin(origins = "https://localhost",allowCredentials = "true")
     @PostMapping("/create")
-    public ResponseEntity<String> createProduct(@RequestBody NewProductDto newProductDto) throws Exception {
-        String response = productService.createProduct(newProductDto);
+    public ResponseEntity<ProductResponseDto> createProduct(@RequestBody NewProductDto newProductDto) throws Exception {
+        productService.createProduct(newProductDto);
 
-        return new ResponseEntity<>(response, HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }

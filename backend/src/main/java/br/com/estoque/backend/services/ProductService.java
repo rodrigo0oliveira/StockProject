@@ -2,11 +2,13 @@ package br.com.estoque.backend.services;
 
 import br.com.estoque.backend.dtos.EntryDto;
 import br.com.estoque.backend.dtos.NewProductDto;
+import br.com.estoque.backend.dtos.ProductResponseDto;
 import br.com.estoque.backend.entities.Category;
 import br.com.estoque.backend.entities.Product;
 import br.com.estoque.backend.entities.User;
 import br.com.estoque.backend.enums.Status;
 import br.com.estoque.backend.repository.ProductRepository;
+import br.com.estoque.backend.sse.SseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -22,8 +24,9 @@ public class ProductService {
     private final AuthService authService;
     private final CategoryService categoryService;
     private final EntryService entryService;
+    private final SseService sseService;
 
-    public String createProduct(NewProductDto newProductDto) throws Exception {
+    public void createProduct(NewProductDto newProductDto) throws Exception {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = authService.getUser(authentication);
 
@@ -42,10 +45,13 @@ public class ProductService {
                 .user(user)
                 .build();
 
-        newProduct = productRepository.save(newProduct);
-        entryService.createEntry(new EntryDto(newProduct,newProduct.getQuantity()));
+        Product product = productRepository.save(newProduct);
+        entryService.createEntry(new EntryDto(product,product.getQuantity()));
 
-        return "Produdo criado com sucesso";
+        ProductResponseDto responseDto = new ProductResponseDto(product.getCode(),product.getName(),product.getPrice()
+        ,product.getQuantity(),product.getCategory().getName(),product.getStatus().getName());
+
+        sseService.sendEvents("Create_Product",responseDto);
     }
 
     public void verifyIfCodeExist(Integer code){
