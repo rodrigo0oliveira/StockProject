@@ -16,7 +16,7 @@ window.addEventListener('load',()=>{
             <td>${data.price}</td>
             <td>${data.quantity}</td>
             <td>${data.category}</td>
-            <td>${data.status}</td>'
+            <td>${data.status}</td>
         `;
 
         const body = document.getElementById("body");

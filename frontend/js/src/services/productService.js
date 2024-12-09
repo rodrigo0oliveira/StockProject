@@ -18,4 +18,24 @@ export default class productService{
             console.log(error);
         }
     }
+
+    static async getProducts() {
+        try{
+            const page = 1;
+            const itens = 4;
+            const response = await axios.get('https://localhost:8843/auth/product/findAll',{
+            params:{
+                page:0,
+                itens:10
+                
+            },
+            withCredentials:true
+        });
+           if(response.status==200){
+                return response.data;
+           }
+        }catch(e){
+            console.log(e);
+        }
+    } 
 }

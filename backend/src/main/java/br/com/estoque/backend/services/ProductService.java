@@ -56,7 +56,10 @@ public class ProductService {
     }
 
     public List<ProductResponseDto> findAll(int page,int itens){
-        Page<Product> productList = productRepository.findAll(PageRequest.of(page,itens));
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = authService.getUser(authentication);
+
+        Page<Product> productList = productRepository.findAllProductsToUsers(user.getId(),PageRequest.of(page,itens));
         return ListProductToDto(productList);
     }
 
