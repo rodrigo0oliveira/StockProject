@@ -60,3 +60,5 @@ function saveCookie(token,expiresIn){
     document.cookie=`${name}=${token}; ${expires}; path=/; Secure; SameSite=None`;
     window.location.href="/dashboard.html";
 }
+
+
