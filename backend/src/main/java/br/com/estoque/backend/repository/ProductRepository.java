@@ -8,9 +8,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.Optional;
+
 public interface ProductRepository extends JpaRepository<Product,String> {
 
-    Product findByCode(Integer code);
+    Optional<Product> findByCode(Integer code);
 
     @Query("select p from Product p where p.user.id = :user_id")
     Page<Product> findAllProductsToUsers(@Param("user_id") String user_id, Pageable pageable);

@@ -26,7 +26,7 @@ export default class productService{
             const response = await axios.get('https://localhost:8843/auth/product/findAll',{
             params:{
                 page:0,
-                itens:10
+                itens:5
                 
             },
             withCredentials:true

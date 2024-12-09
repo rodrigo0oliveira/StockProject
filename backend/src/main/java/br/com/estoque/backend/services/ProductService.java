@@ -65,12 +65,12 @@ public class ProductService {
 
     public void verifyIfCodeExist(Integer code){
         if(findByCode(code)!=null){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Codigo informado ja existe");
         }
     }
 
     public Product findByCode(Integer code){
-        return productRepository.findByCode(code);
+        return productRepository.findByCode(code).orElse(null);
     }
 
     private ProductResponseDto ProductToDto(Product product){
