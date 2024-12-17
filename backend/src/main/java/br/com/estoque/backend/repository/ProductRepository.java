@@ -12,7 +12,8 @@ import java.util.Optional;
 
 public interface ProductRepository extends JpaRepository<Product,String> {
 
-    Optional<Product> findByCode(Integer code);
+    @Query("select p from Product p where p.code = :code and p.user.id = :user_id")
+    Optional<Product> findProductByCodeToUsers(@Param("code") Integer code,@Param("user_id") String user_id);
 
     @Query("select p from Product p where p.user.id = :user_id")
     Page<Product> findAllProductsToUsers(@Param("user_id") String user_id, Pageable pageable);

@@ -20,7 +20,7 @@ public class CategoryService {
         }
         Category newCategory = Category.builder()
                 .id(UUID.randomUUID().toString())
-                .name(name).build();
+                .name(name.toUpperCase()).build();
 
         return categoryRepository.save(newCategory);
     }

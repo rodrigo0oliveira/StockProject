@@ -1,5 +1,6 @@
 package br.com.estoque.backend.controller;
 
+import br.com.estoque.backend.dtos.EditProductDto;
 import br.com.estoque.backend.dtos.NewProductDto;
 import br.com.estoque.backend.dtos.ProductResponseDto;
 import br.com.estoque.backend.services.ProductService;
@@ -29,5 +30,19 @@ public class ProductController {
     @GetMapping("/findAll")
     public ResponseEntity<List<ProductResponseDto>> findAll(@RequestParam int page,@RequestParam int itens){
         return  new ResponseEntity<>(productService.findAll(page,itens),(HttpStatus.OK));
+    }
+
+    @CrossOrigin(origins = "https://localhost", allowCredentials = "true")
+    @PutMapping("/edit/{code}")
+    public ResponseEntity<ProductResponseDto> editProduct(@RequestBody EditProductDto editProductDto
+            ,@PathVariable Integer code){
+
+        ProductResponseDto productResponseDto = productService.editProduct(code,editProductDto);
+
+        if(productResponseDto==null){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(productResponseDto,(HttpStatus.OK));
+
     }
 }

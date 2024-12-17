@@ -61,7 +61,7 @@ main{
     flex-grow: 1;
 }
 
-.header{
+#header{
     padding: 30px;
     display: flex;
     justify-content: space-around;
@@ -97,4 +97,36 @@ th{
 th,td{
     padding: 10px; 
     border: 1px solid white;
+}
+
+td img{
+    padding: 20px;
+}
+
+.edit-form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.edit-form h2{
+    text-align: center;
+}
+
+.div-edit input{
+    border-radius: 5px;
+    border: 5px solid #333;
+    height: 30px;
+    border: none;
+}
+
+.div-edit button{
+    margin-top: 20px;
+}
+
+#edit-show{
+    display: none;
 }
